@@ -3,7 +3,7 @@ FROM php:8.3-apache
 # MySQL driver
 RUN docker-php-ext-install pdo pdo_mysql
 
-# FIX: csak egy MPM legyen betöltve (prefork)
+# ✅ FIX: csak egy MPM maradjon (prefork)
 RUN a2dismod mpm_event mpm_worker || true \
  && a2enmod mpm_prefork
 
